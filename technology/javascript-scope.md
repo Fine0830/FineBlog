@@ -23,22 +23,22 @@
 	var myFunction = function () {
 	  // Scope B: Local scope in here
 	};  
-	```
-	在全局作用域里，任何一个局部作用域是不可见，除非暴露接口，意思是如果定义了一个局部变量或者函数，外部无法访问此变量和函数，如下：
-	```
+```
+在全局作用域里，任何一个局部作用域是不可见，除非暴露接口，意思是如果定义了一个局部变量或者函数，外部无法访问此变量和函数，如下：
+```
 	var myFunction = function () {
 	  var name = 'Todd';
 	  console.log(name); // Todd
 	};
 	// Uncaught ReferenceError: name is not defined
 	console.log(name);
-	```
-	name是一个局部变量，它没有向父级作用域暴露接口，所以是undefined.
+```
+name是一个局部变量，它没有向父级作用域暴露接口，所以是undefined.
 
 ##函数作用域
-	在javascript里面，所有的作用域被创建都是通过Function Scope，
-	循环语句像for或者while,条件语句像if或者switch都不能够产生新的作用域. 新的函数 = 新的作用域，如下：
-	```
+在javascript里面，所有的作用域被创建都是通过Function Scope，
+循环语句像for或者while,条件语句像if或者switch都不能够产生新的作用域. 新的函数 = 新的作用域，如下：
+```
 	// Scope A
 	var myFunction = function () {
 	  // Scope B
@@ -46,11 +46,11 @@
 	    // Scope C
 	  };
 	};
-	```
+```
 ##词法作用域
-	当看到函数里面有另一个函数，内部函数能够访问外部函数的作用域，这个叫做词法作用域或闭包，
-	也被认为是静态作用域，如下：
-	```
+当看到函数里面有另一个函数，内部函数能够访问外部函数的作用域，这个叫做词法作用域或闭包，
+也被认为是静态作用域，如下：
+```
 	// Scope A
 	var myFunction = function () {
 	  // Scope B
@@ -59,9 +59,9 @@
 	    // Scope C: `name` is accessible here!
 	  };
 	};
-	```
-	myOtherFunction在这里没有被调用，只是简单的定义。它的调用顺序也会影响到作用域里面变量的表现，如下定义并调用：
-	```
+```
+myOtherFunction在这里没有被调用，只是简单的定义。它的调用顺序也会影响到作用域里面变量的表现，如下定义并调用：
+```
 	var myFunction = function () {
 	var name = 'Todd';
 	var myOtherFunction = function () {
@@ -74,9 +74,9 @@
 	// Will then log out:
 	// `Todd`
 	// `My name is Todd`
-	```
-    很容易理解和使用词法作用域,任何被定义在它父作用域上的变量/对象/函数,在作用域链上都是可以访问到的.例如:
-    ```
+```
+很容易理解和使用词法作用域,任何被定义在它父作用域上的变量/对象/函数,在作用域链上都是可以访问到的.例如:
+ ```
     var name = 'Todd';
 	var scope1 = function () {
 	  // name is available here
@@ -87,9 +87,9 @@
 	    };
 	  };
 	};
-	```
-	词法作用域不可逆，如下：
-	```
+```
+词法作用域不可逆，如下：
+```
 	// name = undefined
 	var scope1 = function () {
 	  // name = undefined
@@ -100,14 +100,14 @@
 	    };
 	  };
 	};
-	```
-	可以返回一个name的引用，但是不能直接使用变量。
+```
+可以返回一个name的引用，但是不能直接使用变量。
 
 ##作用域链
    作用域链为给定的函数创建作用域，每个函数被定义都有自己嵌套的的作用域，任何定义在别的函数中的函数都有一个 连接外部函数的局部作用域，这个链被称作是作用域中的链，它常常是在代码中那些能够定义作用域的位置，当我们访问一个变量时，JavaScript总是从最里面的作用域沿着做外面的作用域去查找，直到找到我们要的那个变量、对象、函数。
 
 ##闭包
-	闭包和语法作用域关系密切，关于闭包是如何工作的一个好例子就是当我们返回一个函数的引用的时候,这是一个更实际的用法。 在我们的作用域里，我们可以返回一些东西以便这些东西能够在父作用域里被访问和使用，如下：
+  闭包和语法作用域关系密切，关于闭包是如何工作的一个好例子就是当我们返回一个函数的引用的时候,这是一个更实际的用法。 在我们的作用域里，我们可以返回一些东西以便这些东西能够在父作用域里被访问和使用，如下：
 	```
 	var sayHello = function (name) {
 	  var text = 'Hello, ' + name;
