@@ -8,19 +8,17 @@
 
 ##作用域
    在JavaScript中,作用域指的是指代码的当前上下文环境.作用域可以被全局或者局部地定义。
-
 ##全局作用域
    在你开始写javascript的时候，处在的作用域被称作是全局作用域，如下：
-    ```
+ ```
    // global scope
 	var name = 'Todd';
    jQuery('.myClass');  
   ```
-
 ##局部作用域
    局部作用域是指那从全局作用域中定义的许多作用域。javascript只有一个全局作用域，定义一个函数会产生一个局部作用
    定义在别的函数中的函数有一个局部的作用域, 并且这个作用域指向外部的函数.例如：
-   ```
+```
    // Scope A: Global scope out here
 	var myFunction = function () {
 	  // Scope B: Local scope in here
@@ -36,10 +34,9 @@
 	console.log(name);
 ```
 name是一个局部变量，它没有向父级作用域暴露接口，所以是undefined.
-
 ##函数作用域
-在javascript里面，所有的作用域被创建都是通过Function Scope，
-循环语句像for或者while,条件语句像if或者switch都不能够产生新的作用域. 新的函数 = 新的作用域，如下：
+在javascript里面，所有的作用域被创建都是通过Function Scope，循环语句像for或者while,条件语句像if或者switch都不能够产生新的作用域. 新的函数 = 新的作用域，如下：
+
 ```
 	// Scope A
 	var myFunction = function () {
@@ -47,11 +44,12 @@ name是一个局部变量，它没有向父级作用域暴露接口，所以是u
 	  var myOtherFunction = function () {
 	    // Scope C
 	  };
-	};
-```
+	}; 
+```  
+
 ##词法作用域
-当看到函数里面有另一个函数，内部函数能够访问外部函数的作用域，这个叫做词法作用域或闭包，
-也被认为是静态作用域，如下：
+当看到函数里面有另一个函数，内部函数能够访问外部函数的作用域，这个叫做词法作用域或闭包，也被认为是静态作用域，如下：
+
 ```
 	// Scope A
 	var myFunction = function () {
